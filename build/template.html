@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NED Labs — No Evidence of Disease</title>
+<meta name="description" content="NED Labs, the Center for High-Frequency Medicine. Fast design of personal n=1 clinical trials, according to the latest science, with intensive measurements to find out what works.">
+<link rel="canonical" href="https://nedlabs.org/home">
+<meta property="og:title" content="NED Labs — No Evidence of Disease">
+<meta property="og:description" content="The Center for High-Frequency Medicine.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nedlabs.org/home">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 100'%3E%3Cpath d='M 8 54 L 18 44 L 26 48 L 36 30 L 46 42 L 54 38 L 64 60 L 72 72 L 80 78 L 88 78' stroke='%2323402f' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='97' cy='78' r='7' fill='%23d9b36a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f8f5ef;font-family:'Hanken Grotesk',system-ui,sans-serif}
+a{color:#2e5c43}a:hover{color:#1c3b2a}
+input::placeholder{color:inherit;opacity:.5}
+/* The design swaps these on window.innerWidth < 720; mirrored here as a media query. */
+@media (max-width:719px){.ned-wide{display:none !important}}
+@media (min-width:720px){.ned-narrow{display:none !important}}
+</style>
+</head>
+<body>
+
+<div style="position:relative;overflow:hidden;color:#26221b;font-family:'Hanken Grotesk',system-ui,sans-serif">
+
+  <!-- giant background trace -->
+  <svg viewBox="0 0 110 100" fill="none" style="position:absolute;top:180px;left:calc(50% - 980px);width:1980px;height:1800px;z-index:-1;pointer-events:none" aria-hidden="true">
+    <path d="M 8 54 L 18 44 L 26 48 L 36 30 L 46 42 L 54 38 L 64 60 L 72 72 L 80 78 L 88 78" stroke="#23402f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.05"></path>
+    <circle cx="95" cy="78" r="1.6" fill="#d9b36a" opacity="0.12"></circle>
+  </svg>
+
+  <!-- trace behind the two-loops model -->
+  <svg viewBox="0 0 110 100" fill="none" style="position:absolute;top:1750px;left:calc(50% - 990px);width:1940px;height:1760px;z-index:-1;pointer-events:none" aria-hidden="true">
+    <path d="M 8 54 L 18 44 L 26 48 L 36 30 L 46 42 L 54 38 L 64 60 L 72 72 L 80 78 L 88 78" stroke="#23402f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.04"></path>
+    <circle cx="95" cy="78" r="1.6" fill="#d9b36a" opacity="0.1"></circle>
+  </svg>
+
+  <!-- second background trace, lower + fainter -->
+  <svg viewBox="0 0 110 100" fill="none" style="position:absolute;top:2650px;left:calc(50% - 940px);width:1900px;height:1730px;z-index:-1;pointer-events:none;transform:scaleX(-1)" aria-hidden="true">
+    <path d="M 8 54 L 18 44 L 26 48 L 36 30 L 46 42 L 54 38 L 64 60 L 72 72 L 80 78 L 88 78" stroke="#23402f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.032"></path>
+    <circle cx="95" cy="78" r="1.6" fill="#d9b36a" opacity="0.08"></circle>
+  </svg>
+
+  <!-- hero (full-bleed, nav floats on top) -->
+  <div style="position:relative;background:#16130c">
+    <img src="assets/hero-building.jpg" alt="NED Labs — Center for High-Frequency Medicine" style="display:block;width:100%;height:660px;object-fit:cover;object-position:50% 18%">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(22,19,12,0.78) 0%, rgba(22,19,12,0.25) 45%, rgba(22,19,12,0) 65%)"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:150px;background:linear-gradient(to bottom, rgba(22,19,12,0.55), rgba(22,19,12,0))"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom, rgba(248,245,239,0) 0%, rgba(248,245,239,0.06) 22%, rgba(248,245,239,0.2) 42%, rgba(248,245,239,0.45) 62%, rgba(248,245,239,0.75) 80%, #f8f5ef 100%)"></div>
+
+    <!-- nav -->
+    <div style="position:absolute;top:0;left:0;right:0">
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;padding:20px clamp(20px,4vw,48px)">
+      <div style="display:flex;align-items:center;gap:11px;margin-right:auto">
+        <svg width="38" height="33" viewBox="0 0 110 100" fill="none" aria-hidden="true"><path d="M 8 54 L 18 44 L 26 48 L 36 30 L 46 42 L 54 38 L 64 60 L 72 72 L 80 78 L 88 78" stroke="#fdfbf5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="97" cy="78" r="7" fill="#d9b36a"></circle></svg>
+        <div style="font-size:21px;font-weight:800;letter-spacing:-0.02em;color:#fdfbf5">NED Labs</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:clamp(14px,3vw,32px)">
+        <a href="#how-it-works" style="font-size:14.5px;font-weight:500;color:rgba(253,251,245,0.88);text-decoration:none">How it works</a>
+        <a href="#alliance" style="font-size:14.5px;font-weight:500;color:rgba(253,251,245,0.88);text-decoration:none">Alliance</a>
+        <div style="position:relative">
+          <a href="#contact" style="display:block;background:rgba(248,245,239,0.94);color:#23402f;font-size:14px;font-weight:600;padding:10px 20px;border-radius:999px;text-decoration:none">Contact us</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div style="position:absolute;left:0;right:0;bottom:72px">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:12.5px;font-weight:600;letter-spacing:0.16em;color:#e4dcc6">EXPERT TEAM FOCUSED ON GETTING YOU TO</div>
+      <h1 style="margin:0;font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-0.025em;line-height:1.02;color:#fdfbf5">No Evidence of Disease</h1>
+      <div style="font-size:19px;line-height:1.5;color:rgba(253,251,245,0.88);max-width:660px">The Center for High-Frequency Medicine</div>
+    </div>
+    </div>
+  </div>
+
+  <div style="max-width:1280px;margin:0 auto;position:relative">
+
+  <!-- statement -->
+  <div id="how-it-works" style="padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px) clamp(48px,7vw,88px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+    <div style="font-size:36px;font-weight:700;letter-spacing:-0.02em">Oncology at a different pace.</div>
+    <div style="font-size:18px;line-height:1.6;color:#6e675c;max-width:680px">Every minute counts. Fast design of personal n=1 clinical trials, according to the latest science, with intensive measurements to find out what works.</div>
+  </div>
+
+  <!-- timeline -->
+  <div style="margin:0 16px 16px;background:#fffdf8;border-radius:14px;padding:clamp(32px,5vw,64px) clamp(20px,4.5vw,56px);position:relative">
+    <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px">Your path to NED</div>
+    <div style="font-size:17px;line-height:1.6;color:#6e675c;max-width:640px;margin-bottom:44px">Our experts integrate a century of cancer research with your unique biology, to&nbsp;give you and your team access to the best interventions and diagnostic tools.</div>
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:14px 0">
+      <div style="flex:1;min-width:min(100%,560px);border:2px solid #26221b;border-radius:12px;overflow:hidden;background:#26221b;display:flex;flex-wrap:wrap;gap:1px">
+        <div style="flex:1 1 190px;background:#fffdf8;padding:20px 22px;font-size:16.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center">Complete baseline</div>
+        <div style="flex:1 1 190px;background:#fffdf8;padding:20px 22px;font-size:16.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center">Health optimization</div>
+        <div style="flex:1 1 190px;background:#fffdf8;padding:20px 22px;font-size:16.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center">Continuous monitoring</div>
+        <div style="flex:1 1 190px;background:#fffdf8;padding:20px 22px;font-size:16.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center">Personalized treatments</div>
+      </div>
+      <div class="ned-narrow" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:0">
+        <div style="width:2px;height:28px;background:#26221b"></div>
+        <div style="width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:11px solid #26221b"></div>
+        <div style="margin-top:12px;width:78px;height:78px;border-radius:50%;background:#2e5c43;color:#f8f5ef;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:800;letter-spacing:0.02em;flex:none">NED</div>
+      </div>
+      <div class="ned-wide" style="display:flex;align-items:center">
+        <div style="width:clamp(20px,4vw,56px);height:2px;background:#26221b"></div>
+        <div style="width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid #26221b"></div>
+        <div style="margin-left:14px;width:clamp(72px,9vw,92px);height:clamp(72px,9vw,92px);border-radius:50%;background:#2e5c43;color:#f8f5ef;display:flex;align-items:center;justify-content:center;font-size:clamp(20px,2.5vw,25px);font-weight:800;letter-spacing:0.02em;flex:none">NED</div>
+      </div>
+    </div>
+
+    <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px 44px">
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(38,34,27,0.14);padding-top:28px">
+        <div style="font-size:12.5px;font-weight:700;letter-spacing:0.14em;color:#2e5c43">STRATEGY</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em">Team of experts on your case</div>
+        <div style="font-size:16.5px;line-height:1.6;color:#4c463c">An advanced research team deep-dives into your personal medical information and builds a coherent strategy, with clear reasoning behind every step.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(38,34,27,0.14);padding-top:28px">
+        <div style="font-size:12.5px;font-weight:700;letter-spacing:0.14em;color:#2e5c43">MEASUREMENT</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em">Live dashboard of your biology</div>
+        <div style="font-size:16.5px;line-height:1.6;color:#4c463c">The measurement platform produces dense datasets to inform a live dashboard of your personal status and biology, updated every day to catch early treatment response.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(38,34,27,0.14);padding-top:28px">
+        <div style="font-size:12.5px;font-weight:700;letter-spacing:0.14em;color:#2e5c43">TREATMENT</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em">Treatments that work for you</div>
+        <div style="font-size:16.5px;line-height:1.6;color:#4c463c">Personalizing existing and novel therapies, according to state-of-the-art research. We do the heavy-lifting so you can focus on getting better.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- knowledge + platform -->
+  <div style="margin:0 16px 16px;background:#fffdf8;border-radius:14px;padding:clamp(32px,5vw,64px) clamp(20px,4.5vw,56px);position:relative;overflow:hidden">
+    <div style="position:relative;z-index:1">
+    <div style="font-size:12.5px;font-weight:700;letter-spacing:0.14em;color:#2e5c43">INSIDE NED LABS</div>
+    <div style="margin-top:12px;font-size:30px;font-weight:700;letter-spacing:-0.02em">Everything in one place</div>
+    <div style="margin-top:14px;font-size:17px;line-height:1.6;color:#6e675c;max-width:640px"><div>Research, development, and clinical application that operate as a single&nbsp;vehicle. This enables you and your physicians to make treatment decisions, evaluate them, and recalculate new routes significantly faster.</div></div>
+    <div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px 52px">
+      <div style="display:flex;flex-direction:column">
+        <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;padding-bottom:20px">Knowledge</div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">1</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Live map of all cancer treatment</div>
+        </div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">2</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Successful case studies</div>
+        </div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">3</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Fast research translation to clinic</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;padding-bottom:20px">Team</div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">1</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Clinical team</div>
+        </div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">2</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Dedicated Researchers&nbsp;</div>
+        </div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">3</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">AI &amp; data engineers</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;padding-bottom:20px">Platform</div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">1</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Measurement facilities</div>
+        </div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">2</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Treatment toolbox</div>
+        </div>
+        <div style="display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(38,34,27,0.14)">
+          <div style="font-size:16px;font-weight:800;color:#2e5c43;flex:none;width:22px">3</div>
+          <div style="font-size:17.5px;font-weight:700;line-height:1.35">Data collection</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- two loops -->
+  <div style="margin:0 16px 16px;padding:clamp(36px,5.5vw,72px) clamp(20px,4.5vw,56px);position:relative">
+    <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:center;justify-content:center">
+    <div style="display:flex;flex-direction:column;gap:34px;max-width:560px">
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.14em;color:#2e5c43">THE TWO-LOOPS SCIENTIFIC MODEL</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:26px;font-weight:800;letter-spacing:-0.01em">n=1</div>
+        <div style="font-size:17px;line-height:1.6;color:#4c463c">A continuous treatment-response loop that finds what works personally for you with access to all knowledge, team, and facilities in one place.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:26px;font-weight:800;letter-spacing:-0.01em">Humanity</div>
+        <div style="font-size:17px;line-height:1.6;color:#4c463c">With every person, the system grows smarter and better, leading to a continuously improving standard of care for everyone.</div>
+      </div>
+    </div>
+    <svg viewBox="0 0 380 335" fill="none" style="display:block;width:min(400px,88vw);height:auto" role="img" aria-label="Two nested loops: an inner n=1 loop and an outer humanity loop">
+      <line x1="16" y1="307" x2="364" y2="307" stroke="#26221b" stroke-width="2"></line>
+      <circle cx="190" cy="167" r="140" stroke="#26221b" stroke-width="2.5" fill="none"></circle>
+      <circle cx="190" cy="237" r="70" stroke="#26221b" stroke-width="2.5" fill="none"></circle>
+      <path d="M 10,-7 L 10,7 L -5,0 Z" fill="#2e5c43" transform="translate(190,27)"></path>
+      <path d="M -7,10 L 7,10 L 0,-5 Z" fill="#2e5c43" transform="translate(330,167)"></path>
+      <path d="M -7,-10 L 7,-10 L 0,5 Z" fill="#2e5c43" transform="translate(50,167)"></path>
+      <path d="M -7,10 L 7,10 L 0,-5 Z" fill="#2e5c43" transform="translate(260,237)"></path>
+      <text x="190" y="112" text-anchor="middle" font-size="21" font-weight="600" fill="#26221b" font-family="Hanken Grotesk, sans-serif">Humanity</text>
+      <text x="190" y="244" text-anchor="middle" font-size="21" font-weight="600" fill="#26221b" font-family="Hanken Grotesk, sans-serif">n = 1</text>
+    </svg>
+    </div>
+  </div>
+
+  <!-- ned alliance -->
+  <div id="alliance" style="margin:0 16px 16px;background:#23402f;color:#fdfbf5;border-radius:14px;padding:clamp(36px,5.5vw,72px) clamp(20px,4.5vw,56px)">
+    <div style="font-size:12.5px;font-weight:700;letter-spacing:0.16em;color:#a8c7b2">A NETWORK THAT WORKS FOR YOU</div>
+    <div style="margin-top:14px;font-size:38px;font-weight:800;letter-spacing:-0.02em">NED Alliance</div>
+    <div style="margin-top:18px;font-size:18px;line-height:1.6;color:rgba(253,251,245,0.82);max-width:760px">A global network of cancer centers connect by an AI system that learns from every n=1 case, so hard-won lessons travel from one patient to the next, as soon as possible.</div>
+
+    <div style="margin-top:48px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:#a8c7b2">CONNECTING TEAMS ACROSS</div>
+    <div style="margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+<!--INSTROWS-->
+    </div>
+
+    <div style="margin-top:48px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:#a8c7b2">DOCTORS, RESEARCHERS AND ENGINEERS</div>
+    <div style="margin-top:14px">
+      <div class="ned-wide" style="columns:300px 2;column-gap:56px">
+<!--TEAM_WIDE-->
+      </div>
+      <div class="ned-narrow">
+<!--TEAM_NARROW-->
+      </div>
+    </div>
+    <div style="margin-top:44px;display:flex">
+      <a href="mailto:success@nedlabs.org?subject=NED%20Alliance%20partnership" style="display:block;background:#fdfbf5;color:#23402f;font-size:14px;font-weight:700;letter-spacing:0.05em;padding:14px 26px;border-radius:999px;text-decoration:none">EXPLORE AN ALLIANCE PARTNERSHIP ↗</a>
+    </div>
+  </div>
+
+  <!-- cta footer -->
+  <div id="contact" style="margin:16px;background:#23402f;border-radius:14px;padding:clamp(48px,6vw,80px) clamp(20px,4.5vw,56px) 40px;display:flex;flex-direction:column;align-items:center;gap:0">
+    <svg width="112" height="112" viewBox="0 0 100 100" fill="none" style="margin-bottom:28px" aria-hidden="true">
+      <circle cx="50" cy="50" r="48" stroke="#d9b36a" stroke-width="1.6"></circle>
+      <circle cx="50" cy="50" r="43" stroke="#d9b36a" stroke-width="0.8" opacity="0.7"></circle>
+      <g transform="translate(50,50) scale(0.8) translate(-50,-50)">
+        <path d="M 14 52 L 22 44 L 28 47 L 36 32 L 44 42 L 50 39 L 58 57 L 64 66 L 70 71 L 78 71" stroke="#d9b36a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="85" cy="71" r="5" fill="#d9b36a"></circle>
+      </g>
+    </svg>
+    <div style="font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-0.02em;color:#fdfbf5;text-align:center">Every minute counts.</div>
+    <div style="margin-top:14px;font-size:17px;color:rgba(253,251,245,0.75);text-align:center">We are doing everything we can to be ready faster, our best current estimate is Q4 2026.</div>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+      <input id="ned-email" type="email" placeholder="you@email.com" aria-label="Your email address" style="background:rgba(253,251,245,0.1);border:1.5px solid rgba(253,251,245,0.3);border-radius:999px;padding:14px 22px;font-size:15px;color:#fdfbf5;width:min(300px,100%);outline:none;font-family:inherit">
+      <a id="ned-contact" href="mailto:success@nedlabs.org" style="background:#fdfbf5;color:#23402f;font-size:15px;font-weight:700;padding:14px 26px;border-radius:999px;display:flex;align-items:center;text-decoration:none">Contact us</a>
+    </div>
+    <div style="margin-top:72px;width:100%;display:flex;justify-content:space-between;border-top:1px solid rgba(253,251,245,0.18);padding-top:20px">
+      <div style="font-size:13px;color:rgba(253,251,245,0.6)">NED stands for No Evidence of Disease</div>
+      <div style="font-size:13px;color:rgba(253,251,245,0.6)">© 2026 NED Labs</div>
+    </div>
+  </div>
+
+  </div>
+
+</div>
+
+<script>
+// Mirrors the component's onEmailChange: the typed address is folded into the mailto body.
+(function () {
+  var input = document.getElementById('ned-email');
+  var link = document.getElementById('ned-contact');
+  if (!input || !link) return;
+  var subject = encodeURIComponent('Joining the NED waiting list');
+  function update() {
+    var body = "Hi NED Labs,\n\nI'd like to join the waiting list.\n\nName: \nPhone: \nEmail: " +
+      input.value + "\nDiagnosis (optional): \n\nAnything else you'd like to share: \n";
+    link.href = 'mailto:success@nedlabs.org?subject=' + subject + '&body=' + encodeURIComponent(body);
+  }
+  input.addEventListener('input', update);
+  update();
+})();
+</script>
+
+</body>
+</html>
