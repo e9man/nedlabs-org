@@ -1,0 +1,57 @@
+You are the nedlabs.org design-sync job, running unattended in ~/code/nedlabs-org.
+You are syncing ONE page this run: the design "__DESIGN_FILE__" -> __OUTPUT__.
+
+Read build/SYNC.md for the full contract. Steps for THIS page:
+
+1. Load DesignSync (ToolSearch "select:DesignSync"). Fetch projectId
+   b5590216-7b66-4429-95e1-1177ab242be1, path "__DESIGN_FILE__".
+   - If it needs authorization, print "BLOCKED: design auth" and STOP. Do not retry.
+   - If truncated is true, print "BLOCKED: truncated" and STOP.
+   Write it verbatim to /tmp/design-new.dc.html.
+
+2. Run: node build/classify.js __SNAPSHOT__ /tmp/design-new.dc.html
+   Exit 0 IDENTICAL  -> print "NO CHANGE (__OUTPUT__)" and STOP. Do not commit, do not PR.
+   Exit 1 CONTENT    -> apply the added/removed strings to the template that __GENERATOR__
+                        reads (build/template.html for gen.js, build/template-minimal.html
+                        for gen-minimal.js), and to the data arrays in __GENERATOR__ itself
+                        if dclogic_data_changed.
+   Exit 2 STRUCTURAL -> re-translate that template against the new design by hand.
+                        Preserve the static-only translations: the .ned-wide / .ned-narrow
+                        media-query pair standing in for sc-if on window.innerWidth, any
+                        inline script standing in for {{ }} handlers, and single-quoted
+                        url() inside style attributes.
+
+3. Before opening a PR, check idempotency: run
+     gh pr list --repo e9man/nedlabs-org --state open --json headRefName --jq '.[].headRefName'
+   If a branch matching design-sync/__SLUG__-* for THIS design already exists as an open PR
+   and its design sha matches the new one, print "PR EXISTS (__OUTPUT__)" and STOP.
+
+4. Rebuild and gate. Both must pass; if either fails, print the failure and STOP without a PR:
+     node __GENERATOR__ __OUTPUT__
+     node build/check-parity.js /tmp/design-new.dc.html __OUTPUT__
+
+5. Refresh this page's snapshot:
+     cp /tmp/design-new.dc.html __SNAPSHOT__
+     shasum -a 256 __SNAPSHOT__ | cut -d' ' -f1 > __HASH__
+
+6. Commit on a new branch design-sync/__SLUG__-<verdict-lowercase>-<first 7 chars of the new
+   design sha256>. NEVER push to main. GH_TOKEN and GIT_ASKPASS are already exported and
+   authenticate as e9man; do not change git auth. Then:
+     git push -u origin <branch>
+     gh pr create --repo e9man/nedlabs-org --base main --head <branch> --title "Design sync (__OUTPUT__): <VERDICT>" --body "<body>"
+   Body: the full classify.js output in a code block, then one of:
+     - CONTENT: "Copy-only change to __OUTPUT__. Structure unchanged. Parity gate passed."
+     - STRUCTURAL: "**Layout changed in __OUTPUT__. A human must render it at 390px and 1400px
+       before merging.** check-parity.js does not catch structural drift: the copy can match
+       while the layout is stale."
+
+Notes:
+- cancer-center/assets ships .jpg where the full design names .png for hero-building and
+  researcher-desk; that substitution is deliberate (researcher-desk.jpg is redacted) and must
+  not be "fixed". home uses only assets/davidoff-logo.png.
+- If the design references an asset missing from the page's assets/ dir, say so in the PR body
+  and leave the <img> out rather than shipping a 404. Assets over 256 KiB cannot be fetched
+  through DesignSync at all.
+
+Print exactly one final line: "NO CHANGE (__OUTPUT__)", "PR EXISTS (__OUTPUT__)",
+"PR: <url>", or "BLOCKED: <reason>".

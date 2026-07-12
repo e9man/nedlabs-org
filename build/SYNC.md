@@ -2,6 +2,16 @@
 
 Followed by the scheduled agent. Also usable by hand.
 
+This repo serves two pages, each compiled from its own Claude Design file:
+
+| Page | Design file | Generator | Template | Snapshot |
+|------|-------------|-----------|----------|----------|
+| `cancer-center/index.html` (full) | `NED Labs Site.dc.html` | `build/gen.js` | `build/template.html` | `build/design-snapshot.dc.html` |
+| `home/index.html` (minimalist) | `NED Labs Minimal.dc.html` | `build/gen-minimal.js` | `build/template-minimal.html` | `build/design-minimal-snapshot.dc.html` |
+
+`build/sync.sh` checks BOTH on each run (config in its `PAGES` array + `build/sync-prompt.txt`)
+and opens one PR per changed page. The steps below apply per page.
+
 Design source of truth:
 `https://claude.ai/design/p/b5590216-7b66-4429-95e1-1177ab242be1?file=NED+Labs+Site.dc.html`
 projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
