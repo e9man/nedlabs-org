@@ -9,8 +9,8 @@ projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
 ## Rules
 
 1. **Never push to `main`.** Open a PR. Merging `main` deploys, because GitHub
-   Pages serves this repo and `nedlabs.org/home*` bypasses the Cloudflare Worker.
-2. **Never hand-edit `home/index.html`.** It is generated. Edit `build/template.html`.
+   Pages serves this repo and `nedlabs.org/cancer-center*` bypasses the Cloudflare Worker.
+2. **Never hand-edit `cancer-center/index.html`.** It is generated. Edit `build/template.html`.
 3. **A STRUCTURAL verdict means a human re-translates `build/template.html`.**
    `gen.js` resolves data, not layout. Re-running it against an old template
    regenerates the old structure wearing the new copy, and every automated check
@@ -44,8 +44,8 @@ projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
 
 3. Rebuild and gate:
 
-       node build/gen.js home/index.html
-       node build/check-parity.js /tmp/design-new.dc.html home/index.html
+       node build/gen.js cancer-center/index.html
+       node build/check-parity.js /tmp/design-new.dc.html cancer-center/index.html
 
    `gen.js` throws if template syntax leaks through or the viewport is not
    `device-width`. `check-parity.js` fails if any design string is missing from
@@ -61,7 +61,7 @@ projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
          --headless=new --disable-gpu --hide-scrollbars \
          --screenshot=/tmp/desk.png --window-size=1400,4700 \
-         --virtual-time-budget=10000 http://localhost:8899/home/
+         --virtual-time-budget=10000 http://localhost:8899/cancer-center/
 
    Confirm `document.documentElement.scrollWidth === clientWidth` at 320/360/390.
 
@@ -75,7 +75,7 @@ projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
    the layout. Label a STRUCTURAL PR as needing visual review.
 
 7. Assets: `DesignSync.get_file` caps at 256 KiB, so photographic assets cannot
-   be fetched. If the design references an asset not in `home/assets/`, say so in
+   be fetched. If the design references an asset not in `cancer-center/assets/`, say so in
    the PR and leave the `<img>` out rather than shipping a 404.
 
    Before publishing any photo, look at it. `researcher-desk.jpg` had a legible
@@ -86,4 +86,4 @@ projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
 
 Cloudflare caches. Purge, then verify against the real domain, not the origin:
 
-    curl -s -o /dev/null -w "%{http_code}\n" https://nedlabs.org/home/
+    curl -s -o /dev/null -w "%{http_code}\n" https://nedlabs.org/cancer-center/

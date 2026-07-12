@@ -3,7 +3,7 @@
 # or by hand: ./build/sync.sh
 #
 # Fetches the Claude Design source, classifies the change, and opens a PR.
-# Never pushes to main: merging main deploys to nedlabs.org/home.
+# Never pushes to main: merging main deploys to nedlabs.org/cancer-center.
 #
 # Two things this script has already been bitten by, do not undo them:
 #
@@ -95,8 +95,8 @@ Read build/SYNC.md and follow it exactly. Summary of the contract:
 
 3. Rebuild and gate. Both must pass; if either fails, print the failure and STOP
    without opening a PR:
-     node build/gen.js home/index.html
-     node build/check-parity.js /tmp/design-new.dc.html home/index.html
+     node build/gen.js cancer-center/index.html
+     node build/check-parity.js /tmp/design-new.dc.html cancer-center/index.html
 
 4. Refresh the snapshot:
      cp /tmp/design-new.dc.html build/design-snapshot.dc.html
@@ -110,12 +110,12 @@ Read build/SYNC.md and follow it exactly. Summary of the contract:
    Title: "Design sync: <VERDICT>"
    Body: the full classify.js output in a code block, then one of:
      - CONTENT: "Copy-only change. Structure unchanged. Parity gate passed."
-     - STRUCTURAL: "**Layout changed. A human must render this at 390px and 1400px
+     - STRUCTURAL: "**Layout changed. A human must render cancer-center at 390px and 1400px
        before merging.** check-parity.js does not catch structural drift: the copy
        can match while the layout is stale."
-   If the design references an asset missing from home/assets/, say so in the PR body
+   If the design references an asset missing from cancer-center/assets/, say so in the PR body
    and leave the <img> out rather than shipping a 404. Assets over 256 KiB cannot be
-   fetched through DesignSync at all. Note home/assets/ ships .jpg where the design
+   fetched through DesignSync at all. Note cancer-center/assets/ ships .jpg where the design
    names .png for hero-building and researcher-desk; that substitution is deliberate
    (researcher-desk.jpg is redacted) and must not be "fixed".
 

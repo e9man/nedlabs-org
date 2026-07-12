@@ -1,13 +1,13 @@
 # build
 
-`home/index.html` is generated. Do not edit it by hand.
+`cancer-center/index.html` is generated. Do not edit it by hand.
 
 Source of truth is the Claude Design project:
 https://claude.ai/design/p/b5590216-7b66-4429-95e1-1177ab242be1?file=NED+Labs+Site.dc.html
 
 ## Regenerate
 
-    node build/gen.js home/index.html
+    node build/gen.js cancer-center/index.html
 
 ## Why a build step
 
