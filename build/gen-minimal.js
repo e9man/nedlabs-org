@@ -7,32 +7,13 @@
 const fs = require('fs');
 const path = require('path');
 
+// The "no logos" design lists institutions as a gold dot + name, no favicons.
 const institutions = [
   'Harvard Medical School', 'Weill Cornell', 'UCLA', 'Tel Aviv University',
   'Cedars-Sinai', 'Boston College', 'Sourasky Medical Center', 'Shamir Medical Center',
   'MD Anderson Cancer Center', 'Hebrew University', 'Davidoff Cancer Center', 'Massachusetts General Hospital'
 ];
-const instDomains = {
-  'Harvard Medical School': 'hms.harvard.edu',
-  'Weill Cornell': 'weill.cornell.edu',
-  'UCLA': 'ucla.edu',
-  'Tel Aviv University': 'tau.ac.il',
-  'Cedars-Sinai': 'cedars-sinai.org',
-  'Hebrew University': 'huji.ac.il',
-  'Sourasky Medical Center': 'tasmc.org.il',
-  'Shamir Medical Center': 'shamir.org',
-  'MD Anderson Cancer Center': 'mdanderson.org',
-  'Boston College': 'bc.edu',
-  'Massachusetts General Hospital': 'massgeneral.org',
-  'Davidoff Cancer Center': null
-};
-const instItems = institutions.map(name => ({
-  name,
-  // single-quoted url() so it survives inside a double-quoted style attribute
-  logoBg: instDomains[name]
-    ? "url('https://www.google.com/s2/favicons?domain=" + instDomains[name] + "&sz=64')"
-    : "url('assets/davidoff-logo.png')"
-}));
+const instItems = institutions.map(name => ({ name }));
 
 const raw = [
   ['Prof. Giulio Draetta, MD', 'https://www.linkedin.com/in/giulio-draetta-5174755', 'https://scholar.google.com/citations?user=H0esp7EAAAAJ', null],
@@ -97,7 +78,7 @@ const renderTeam = team => team.map(m => {
 }).join('\n');
 
 const instHtml = instItems.map(i => `      <div style="display:flex;align-items:center;gap:11px;padding:8px 0">
-        <div style="width:22px;height:22px;flex:none;background-image:${i.logoBg};background-size:contain;background-position:center;background-repeat:no-repeat"></div>
+        <div style="width:6px;height:6px;border-radius:50%;flex:none;background:#d9b36a"></div>
         <div style="font-size:15px;font-weight:600;color:#232321">${esc(i.name)}</div>
       </div>`).join('\n');
 

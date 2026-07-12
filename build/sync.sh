@@ -7,7 +7,7 @@
 #
 # Pages:
 #   NED Labs Site.dc.html    -> cancer-center/index.html  (full design)
-#   NED Labs Minimal.dc.html -> home/index.html           (minimalist)
+#   NED Labs Minimal (no logos).dc.html -> home/index.html           (minimalist)
 #
 # Two things this script has already been bitten by, do not undo them:
 #   * It must stay TRACKED by git. `git clean -fd` deletes untracked files, and
@@ -78,7 +78,7 @@ PROMPT_TMPL="$(cat "$REPO/build/sync-prompt.txt")"
 # page | design file | generator | snapshot | hash | output | branch-slug
 PAGES=(
   "full|NED Labs Site.dc.html|build/gen.js|build/design-snapshot.dc.html|build/design.sha256|cancer-center/index.html|cancer-center"
-  "minimal|NED Labs Minimal.dc.html|build/gen-minimal.js|build/design-minimal-snapshot.dc.html|build/design-minimal.sha256|home/index.html|home"
+  "minimal|NED Labs Minimal (no logos).dc.html|build/gen-minimal.js|build/design-minimal-snapshot.dc.html|build/design-minimal.sha256|home/index.html|home"
 )
 
 overall=0
