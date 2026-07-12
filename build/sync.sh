@@ -5,8 +5,12 @@
 # Fetches the Claude Design source, classifies the change, and opens a PR.
 # Never pushes to main: merging main deploys to nedlabs.org/home.
 #
-# This script must stay tracked by git. `git clean -fd` below deletes untracked
-# files, and an untracked copy of this script deletes itself mid-run.
+# Two things this script has already been bitten by, do not undo them:
+#
+#   * It must stay TRACKED by git. `git clean -fd` below deletes untracked files,
+#     and an untracked copy of this script deletes itself mid-run.
+#   * `git reset --hard origin/main` DISCARDS local commits. Push your work before
+#     running this by hand, or it is gone.
 set -uo pipefail
 
 REPO="$HOME/code/nedlabs-org"
@@ -16,20 +20,48 @@ export PATH="/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.npm-global/b
 exec >>"$LOG" 2>&1
 echo "=== $(date '+%Y-%m-%d %H:%M:%S %Z') design-sync starting ==="
 
-# The CLI self-updates in place; a run landing mid-swap sees ENOENT. Wait it out.
-CLAUDE=""
-for _ in 1 2 3 4 5 6; do
-  c="$(command -v claude 2>/dev/null || true)"
-  if [ -n "$c" ] && [ -x "$c" ]; then CLAUDE="$c"; break; fi
-  sleep 5
-done
-if [ -z "$CLAUDE" ]; then
-  echo "FATAL: claude CLI not executable after retries"
-  echo "=== $(date '+%H:%M:%S') design-sync finished (rc=127) ==="
-  exit 127
-fi
-
 cd "$REPO" || { echo "FATAL: $REPO missing"; exit 1; }
+
+# The ambient gh account is `glicksman`, which has no write access to e9man/*.
+# Both `git push` and `gh pr create` must run as e9man.
+GH_TOKEN="$(gh auth token -u e9man 2>/dev/null)"
+if [ -z "$GH_TOKEN" ]; then
+  echo "FATAL: no gh token for e9man (run: gh auth login -u e9man)"
+  echo "=== $(date '+%H:%M:%S') design-sync finished (rc=1) ==="
+  exit 1
+fi
+export GH_TOKEN
+
+ASKPASS="$(mktemp -t nedlabs-askpass)"
+cat > "$ASKPASS" <<'EOF'
+#!/bin/sh
+case "$1" in
+  Username*) echo "x-access-token" ;;
+  Password*) echo "$GH_TOKEN" ;;
+esac
+EOF
+chmod 700 "$ASKPASS"
+trap 'rm -f "$ASKPASS"' EXIT
+export GIT_ASKPASS="$ASKPASS"
+export GIT_TERMINAL_PROMPT=0
+git config --local credential.helper ""
+
+# The CLI self-updates by unlinking and replacing its binary. Testing -x before
+# exec does not help: the file can vanish in the window between the two. Retry
+# the exec itself when it fails with 127 (ENOENT).
+run_claude() {
+  local rc attempt=1
+  while [ "$attempt" -le 4 ]; do
+    "$(command -v claude 2>/dev/null || echo "$HOME/.npm-global/bin/claude")" "$@"
+    rc=$?
+    [ "$rc" -ne 127 ] && return "$rc"
+    echo "  claude exec returned 127 (self-update race?), attempt $attempt; retrying in 20s"
+    sleep 20
+    attempt=$((attempt + 1))
+  done
+  echo "FATAL: claude CLI unusable after $((attempt - 1)) attempts"
+  return 127
+}
 
 # Start from a clean copy of main so a half-finished previous run cannot poison the diff.
 if ! git fetch --quiet origin main; then
@@ -39,7 +71,7 @@ if ! git fetch --quiet origin main; then
 fi
 git checkout --quiet main && git reset --quiet --hard origin/main && git clean -qfd
 
-"$CLAUDE" -p --dangerously-skip-permissions "$(cat <<'PROMPT'
+run_claude -p --dangerously-skip-permissions "$(cat <<'PROMPT'
 You are the nedlabs.org design-sync job, running unattended in ~/code/nedlabs-org.
 
 Read build/SYNC.md and follow it exactly. Summary of the contract:
@@ -71,7 +103,10 @@ Read build/SYNC.md and follow it exactly. Summary of the contract:
      shasum -a 256 build/design-snapshot.dc.html | cut -d' ' -f1 > build/design.sha256
 
 5. Open a PR on a new branch named design-sync/<verdict-lowercase>-<first 7 chars of
-   the new design sha256>. NEVER push to main. Use gh pr create --repo e9man/nedlabs-org.
+   the new design sha256>. NEVER push to main. GH_TOKEN and GIT_ASKPASS are already
+   exported and authenticate as e9man; do not change git auth. Use:
+     git push -u origin <branch>
+     gh pr create --repo e9man/nedlabs-org --base main --head <branch> ...
    Title: "Design sync: <VERDICT>"
    Body: the full classify.js output in a code block, then one of:
      - CONTENT: "Copy-only change. Structure unchanged. Parity gate passed."
@@ -80,7 +115,9 @@ Read build/SYNC.md and follow it exactly. Summary of the contract:
        can match while the layout is stale."
    If the design references an asset missing from home/assets/, say so in the PR body
    and leave the <img> out rather than shipping a 404. Assets over 256 KiB cannot be
-   fetched through DesignSync at all.
+   fetched through DesignSync at all. Note home/assets/ ships .jpg where the design
+   names .png for hero-building and researcher-desk; that substitution is deliberate
+   (researcher-desk.jpg is redacted) and must not be "fixed".
 
 Print exactly one final line: "NO CHANGE", "PR: <url>", or "BLOCKED: <reason>".
 PROMPT
