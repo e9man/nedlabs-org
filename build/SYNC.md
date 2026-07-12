@@ -97,3 +97,24 @@ projectId `b5590216-7b66-4429-95e1-1177ab242be1`, path `NED Labs Site.dc.html`.
 Cloudflare caches. Purge, then verify against the real domain, not the origin:
 
     curl -s -o /dev/null -w "%{http_code}\n" https://nedlabs.org/cancer-center/
+
+## Scheduling (launchd)
+
+`build/com.nedlabs.design-sync.plist` runs `build/sync.sh` at 07:17 and 19:17 local,
+twice daily. Install / reload:
+
+    cp build/com.nedlabs.design-sync.plist ~/Library/LaunchAgents/
+    launchctl unload ~/Library/LaunchAgents/com.nedlabs.design-sync.plist 2>/dev/null
+    launchctl load   ~/Library/LaunchAgents/com.nedlabs.design-sync.plist
+
+Trigger a run by hand any time:
+
+    launchctl start com.nedlabs.design-sync    # via the agent
+    ./build/sync.sh                            # or directly (foreground)
+
+Logs: `~/Library/Logs/nedlabs-design-sync.log` (script) and
+`~/Library/Logs/nedlabs-design-sync.launchd.log` (launchd stdout/stderr).
+
+Each run spawns two `claude -p` agents (one per page) and can take 15-20 min total;
+launchd imposes no timeout. It requires design auth from `/design-login` having been
+run on this machine (persists in the keychain) and a `gh` login for `e9man`.
