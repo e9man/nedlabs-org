@@ -19,6 +19,11 @@ body{margin:0;background:#fafafa;font-family:'Hanken Grotesk',system-ui,sans-ser
 a{color:#2e5c43}
 a:hover{color:#23402f}
 ::selection{background:#d9b36a;color:#232321}
+@media (max-width:640px){
+  [data-screen-label="Hero"]{min-height:calc(100vh - 130px) !important}
+  #hero-kicker{margin-top:auto !important}
+  #hero-goldbar{margin-top:auto !important;padding-top:clamp(48px,8vw,80px)}
+}
 </style>
 </helmet>
 
@@ -34,11 +39,11 @@ a:hover{color:#23402f}
   </div>
 
   <!-- hero -->
-  <div style="padding:clamp(48px,8vw,72px) 0 0;min-height:min(80vh,max(62vh,calc(100vw - 560px)));display:flex;flex-direction:column;justify-content:center" data-screen-label="Hero">
-    <div style="font-size:clamp(13px,1.1vw,14.5px);font-weight:600;letter-spacing:0.15em;color:#8e8e88">EXPERT TEAM FOCUSED ON ONE GOAL</div><div style="margin-top:12px;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty">No&nbsp;Evidence&nbsp;of&nbsp;Disease</div>
+  <div style="padding:clamp(48px,8vw,72px) 0 0;min-height:min(80vh,calc(100vw - 560px));display:flex;flex-direction:column;justify-content:center" data-screen-label="Hero">
+    <div id="hero-kicker" style="font-size:clamp(13px,1.1vw,14.5px);font-weight:600;letter-spacing:0.15em;color:#8e8e88">EXPERT TEAM FOCUSED ON ONE GOAL</div><div style="margin-top:12px;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty">No&nbsp;Evidence&nbsp;of&nbsp;Disease</div>
     <div style="margin-top:clamp(26px,3vw,34px);font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:#4a4a46;text-wrap:pretty">We design tailored clinical trials around one patient,&nbsp;combining a dedicated research team, continuous measurement and every treatment option that exists.</div>
     <div style="margin-top:clamp(26px,3vw,34px);font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:#4a4a46;text-wrap:pretty">Every minute counts, so we practice oncology at a different pace: tracking your biology every day to detect early treatment response, and iterating until we find the combination that works for you.</div>
-    <div style="margin-top:clamp(48px,8vw,80px);width:56px;height:2px;background:#d9b36a"></div>
+    <div id="hero-goldbar" style="margin-top:clamp(48px,8vw,80px)"><div style="width:56px;height:2px;background:#d9b36a"></div></div>
   </div>
 
   <!-- what we do -->
@@ -148,13 +153,9 @@ class Component extends DCLogic {
     const instItems = institutions.map(name => ({ name }));
     const raw = [
       ["Prof. Giulio Draetta, MD", "https://www.linkedin.com/in/giulio-draetta-5174755", "https://scholar.google.com/citations?user=H0esp7EAAAAJ", null, "MD Anderson Cancer Center"],
-      ["Dr. Mitchell A Kline, MD", "https://www.linkedin.com/in/mitchell-a-kline-md-803a7017", "https://scholar.google.com/citations?user=wj2OiuYAAAAJ", null, "Weill Cornell"],
       ["Prof. Matthew Rosen", "https://www.linkedin.com/in/matthew-rosen-a1899838", "https://scholar.google.com/citations?user=JrcqHSMAAAAJ", null, "Harvard Medical School"],
       ["Dr. Ari Raphael, MD", "https://il.linkedin.com/in/ari-raphael-m-d-oncologist-scientist-09877994", "https://scholar.google.com/citations?user=CQdAIAcAAAAJ", null, "Davidoff Cancer Center"],
-      ["Dr. Barliz Waissengrin, MD", "https://www.linkedin.com/in/dr-barliz-waissengrin-74539710", "https://scholar.google.com/citations?user=eCq1wugAAAAJ", null, "Sourasky Medical Center"],
       ["Prof. Steve Cole", "https://www.linkedin.com/in/stevewcole", "https://scholar.google.com/citations?user=tXaMqeYAAAAJ", null, "UCLA"],
-      ["Prof. Ben Corn, MD", null, null, "https://dailynews.ascopubs.org/do/dr-ben-corn-honored-humanitarian-award-decades-long-quest-integrate-hopefulness-into", "Hebrew University"],
-      ["Prof. Deborah Blumenthal, MD", "https://il.linkedin.com/in/deborah-blumenthal-b383164", "https://scholar.google.com/citations?user=c_9bmTkAAAAJ", null, "Sourasky Medical Center"],
       ["Prof. Noam Shomron", "https://il.linkedin.com/in/nshomron", "https://scholar.google.com/citations?user=BdJzVV4AAAAJ", null, "Tel Aviv University"],
       ["Einav Itamar", "https://il.linkedin.com/in/1itamar", null],
       ["Eran Glicksman", "https://il.linkedin.com/in/glix", null],

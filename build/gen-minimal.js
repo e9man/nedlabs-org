@@ -17,13 +17,9 @@ const instItems = institutions.map(name => ({ name }));
 
 const raw = [
   ['Prof. Giulio Draetta, MD', 'https://www.linkedin.com/in/giulio-draetta-5174755', 'https://scholar.google.com/citations?user=H0esp7EAAAAJ', null],
-  ['Dr. Mitchell A Kline, MD', 'https://www.linkedin.com/in/mitchell-a-kline-md-803a7017', 'https://scholar.google.com/citations?user=wj2OiuYAAAAJ', null],
   ['Prof. Matthew Rosen', 'https://www.linkedin.com/in/matthew-rosen-a1899838', 'https://scholar.google.com/citations?user=JrcqHSMAAAAJ', null],
   ['Dr. Ari Raphael, MD', 'https://il.linkedin.com/in/ari-raphael-m-d-oncologist-scientist-09877994', 'https://scholar.google.com/citations?user=CQdAIAcAAAAJ', null],
-  ['Dr. Barliz Waissengrin, MD', 'https://www.linkedin.com/in/dr-barliz-waissengrin-74539710', 'https://scholar.google.com/citations?user=eCq1wugAAAAJ', null],
   ['Prof. Steve Cole', 'https://www.linkedin.com/in/stevewcole', 'https://scholar.google.com/citations?user=tXaMqeYAAAAJ', null],
-  ['Prof. Ben Corn, MD', null, null, 'https://dailynews.ascopubs.org/do/dr-ben-corn-honored-humanitarian-award-decades-long-quest-integrate-hopefulness-into'],
-  ['Prof. Deborah Blumenthal, MD', 'https://il.linkedin.com/in/deborah-blumenthal-b383164', 'https://scholar.google.com/citations?user=c_9bmTkAAAAJ', null],
   ['Prof. Noam Shomron', 'https://il.linkedin.com/in/nshomron', 'https://scholar.google.com/citations?user=BdJzVV4AAAAJ', null],
   ['Einav Itamar', 'https://il.linkedin.com/in/1itamar', null],
   ['Eran Glicksman', 'https://il.linkedin.com/in/glix', null],

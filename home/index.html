@@ -22,6 +22,11 @@ a:hover{color:#23402f}
 ::selection{background:#d9b36a;color:#232321}
 @media (max-width:719px){.ned-wide{display:none !important}}
 @media (min-width:720px){.ned-narrow{display:none !important}}
+@media (max-width:640px){
+  [data-screen-label="Hero"]{min-height:calc(100vh - 130px) !important}
+  #hero-kicker{margin-top:auto !important}
+  #hero-goldbar{margin-top:auto !important;padding-top:clamp(48px,8vw,80px)}
+}
 </style>
 </head>
 <body>
@@ -38,11 +43,11 @@ a:hover{color:#23402f}
   </div>
 
   <!-- hero -->
-  <div style="padding:clamp(48px,8vw,72px) 0 0;min-height:min(80vh,max(62vh,calc(100vw - 560px)));display:flex;flex-direction:column;justify-content:center">
-    <div style="font-size:clamp(13px,1.1vw,14.5px);font-weight:600;letter-spacing:0.15em;color:#8e8e88">EXPERT TEAM FOCUSED ON ONE GOAL</div><h1 style="margin:0;margin-top:12px;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty">No&nbsp;Evidence&nbsp;of&nbsp;Disease</h1>
+  <div data-screen-label="Hero" style="padding:clamp(48px,8vw,72px) 0 0;min-height:min(80vh,calc(100vw - 560px));display:flex;flex-direction:column;justify-content:center">
+    <div id="hero-kicker" style="font-size:clamp(13px,1.1vw,14.5px);font-weight:600;letter-spacing:0.15em;color:#8e8e88">EXPERT TEAM FOCUSED ON ONE GOAL</div><h1 style="margin:0;margin-top:12px;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty">No&nbsp;Evidence&nbsp;of&nbsp;Disease</h1>
     <div style="margin-top:clamp(26px,3vw,34px);font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:#4a4a46;text-wrap:pretty">We design tailored clinical trials around one patient,&nbsp;combining a dedicated research team, continuous measurement and every treatment option that exists.</div>
     <div style="margin-top:clamp(26px,3vw,34px);font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:#4a4a46;text-wrap:pretty">Every minute counts, so we practice oncology at a different pace: tracking your biology every day to detect early treatment response, and iterating until we find the combination that works for you.</div>
-    <div style="margin-top:clamp(48px,8vw,80px);width:56px;height:2px;background:#d9b36a"></div>
+    <div id="hero-goldbar" style="margin-top:clamp(48px,8vw,80px)"><div style="width:56px;height:2px;background:#d9b36a"></div></div>
   </div>
 
   <!-- how it works -->
@@ -154,23 +159,10 @@ a:hover{color:#23402f}
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Matthew Rosen</div>
+          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Dr. Ari Raphael, MD</div>
           <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=JrcqHSMAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Matthew Rosen on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://www.linkedin.com/in/matthew-rosen-a1899838" target="_blank" rel="noopener" title="LinkedIn" aria-label="Prof. Matthew Rosen on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Dr. Barliz Waissengrin, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=eCq1wugAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Dr. Barliz Waissengrin, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://www.linkedin.com/in/dr-barliz-waissengrin-74539710" target="_blank" rel="noopener" title="LinkedIn" aria-label="Dr. Barliz Waissengrin, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Ben Corn, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://dailynews.ascopubs.org/do/dr-ben-corn-honored-humanitarian-award-decades-long-quest-integrate-hopefulness-into" target="_blank" rel="noopener" title="Website" aria-label="Prof. Ben Corn, MD website" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3.6 9h16.8M3.6 15h16.8"></path></svg></a>
+            <a href="https://scholar.google.com/citations?user=CQdAIAcAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Dr. Ari Raphael, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
+            <a href="https://il.linkedin.com/in/ari-raphael-m-d-oncologist-scientist-09877994" target="_blank" rel="noopener" title="LinkedIn" aria-label="Dr. Ari Raphael, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
@@ -225,17 +217,10 @@ a:hover{color:#23402f}
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Dr. Mitchell A Kline, MD</div>
+          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Matthew Rosen</div>
           <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=wj2OiuYAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Dr. Mitchell A Kline, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://www.linkedin.com/in/mitchell-a-kline-md-803a7017" target="_blank" rel="noopener" title="LinkedIn" aria-label="Dr. Mitchell A Kline, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Dr. Ari Raphael, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=CQdAIAcAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Dr. Ari Raphael, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://il.linkedin.com/in/ari-raphael-m-d-oncologist-scientist-09877994" target="_blank" rel="noopener" title="LinkedIn" aria-label="Dr. Ari Raphael, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
+            <a href="https://scholar.google.com/citations?user=JrcqHSMAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Matthew Rosen on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
+            <a href="https://www.linkedin.com/in/matthew-rosen-a1899838" target="_blank" rel="noopener" title="LinkedIn" aria-label="Prof. Matthew Rosen on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
@@ -243,13 +228,6 @@ a:hover{color:#23402f}
           <div style="display:flex;gap:6px;flex:none">
             <a href="https://scholar.google.com/citations?user=tXaMqeYAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Steve Cole on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
             <a href="https://www.linkedin.com/in/stevewcole" target="_blank" rel="noopener" title="LinkedIn" aria-label="Prof. Steve Cole on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Deborah Blumenthal, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=c_9bmTkAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Deborah Blumenthal, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://il.linkedin.com/in/deborah-blumenthal-b383164" target="_blank" rel="noopener" title="LinkedIn" aria-label="Prof. Deborah Blumenthal, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
@@ -311,13 +289,6 @@ a:hover{color:#23402f}
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Dr. Mitchell A Kline, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=wj2OiuYAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Dr. Mitchell A Kline, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://www.linkedin.com/in/mitchell-a-kline-md-803a7017" target="_blank" rel="noopener" title="LinkedIn" aria-label="Dr. Mitchell A Kline, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
           <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Matthew Rosen</div>
           <div style="display:flex;gap:6px;flex:none">
             <a href="https://scholar.google.com/citations?user=JrcqHSMAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Matthew Rosen on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
@@ -332,30 +303,10 @@ a:hover{color:#23402f}
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Dr. Barliz Waissengrin, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=eCq1wugAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Dr. Barliz Waissengrin, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://www.linkedin.com/in/dr-barliz-waissengrin-74539710" target="_blank" rel="noopener" title="LinkedIn" aria-label="Dr. Barliz Waissengrin, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
           <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Steve Cole</div>
           <div style="display:flex;gap:6px;flex:none">
             <a href="https://scholar.google.com/citations?user=tXaMqeYAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Steve Cole on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
             <a href="https://www.linkedin.com/in/stevewcole" target="_blank" rel="noopener" title="LinkedIn" aria-label="Prof. Steve Cole on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Ben Corn, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://dailynews.ascopubs.org/do/dr-ben-corn-honored-humanitarian-award-decades-long-quest-integrate-hopefulness-into" target="_blank" rel="noopener" title="Website" aria-label="Prof. Ben Corn, MD website" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3.6 9h16.8M3.6 15h16.8"></path></svg></a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
-          <div style="flex:1;font-size:15px;font-weight:600;color:#232321">Prof. Deborah Blumenthal, MD</div>
-          <div style="display:flex;gap:6px;flex:none">
-            <a href="https://scholar.google.com/citations?user=c_9bmTkAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Prof. Deborah Blumenthal, MD on Google Scholar" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l4.5 2.45v4.1c0 .5.28.97.73 1.2L12 20l5.77-3.25c.45-.23.73-.7.73-1.2v-4.1L21 10.1V16h1.5V9.35L12 3zm5 12.4-5 2.82-5-2.82v-2.9l5 2.72 5-2.72v2.9z"></path></svg></a>
-            <a href="https://il.linkedin.com/in/deborah-blumenthal-b383164" target="_blank" rel="noopener" title="LinkedIn" aria-label="Prof. Deborah Blumenthal, MD on LinkedIn" style="display:flex;align-items:center;color:rgba(35,35,33,0.32);text-decoration:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.92V23h-4.51v-7.11c0-1.7-.03-3.88-2.37-3.88-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"></path></svg></a>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding:6px 0;break-inside:avoid">
