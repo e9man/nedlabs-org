@@ -23,9 +23,10 @@ a:hover{color:#23402f}
 @media (max-width:719px){.ned-wide{display:none !important}}
 @media (min-width:720px){.ned-narrow{display:none !important}}
 @media (max-width:640px){
-  [data-screen-label="Hero"]{min-height:calc(100vh - 130px) !important}
-  #hero-kicker{margin-top:auto !important}
-  #hero-goldbar{margin-top:auto !important;padding-top:clamp(48px,8vw,80px)}
+  [data-screen-label="Hero"]{padding-top:34px !important}
+  [data-screen-label="Hero"] > div:nth-child(3),[data-screen-label="Hero"] > div:nth-child(4){margin-top:20px !important}
+  [data-screen-label="Hero"] > div:last-child{margin-top:38px !important}
+  [data-screen-label="How"]{padding-top:42px !important}
 }
 </style>
 </head>
@@ -44,14 +45,14 @@ a:hover{color:#23402f}
 
   <!-- hero -->
   <div data-screen-label="Hero" style="padding:clamp(48px,8vw,72px) 0 0;min-height:min(80vh,calc(100vw - 560px));display:flex;flex-direction:column;justify-content:center">
-    <div id="hero-kicker" style="font-size:clamp(13px,1.1vw,14.5px);font-weight:600;letter-spacing:0.15em;color:#8e8e88">EXPERT TEAM FOCUSED ON ONE GOAL</div><h1 style="margin:0;margin-top:12px;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty">No&nbsp;Evidence&nbsp;of&nbsp;Disease</h1>
+    <div style="font-size:clamp(13px,1.1vw,14.5px);font-weight:600;letter-spacing:0.15em;color:#8e8e88">EXPERT TEAM FOCUSED ON ONE GOAL</div><h1 style="margin:0;margin-top:12px;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty">No&nbsp;Evidence&nbsp;of&nbsp;Disease</h1>
     <div style="margin-top:clamp(26px,3vw,34px);font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:#4a4a46;text-wrap:pretty">We design tailored clinical trials around one patient,&nbsp;combining a dedicated research team, continuous measurement and every treatment option that exists.</div>
     <div style="margin-top:clamp(26px,3vw,34px);font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:#4a4a46;text-wrap:pretty">Every minute counts, so we practice oncology at a different pace: tracking your biology every day to detect early treatment response, and iterating until we find the combination that works for you.</div>
-    <div id="hero-goldbar" style="margin-top:clamp(48px,8vw,80px)"><div style="width:56px;height:2px;background:#d9b36a"></div></div>
+    <div style="margin-top:clamp(48px,8vw,80px);width:56px;height:2px;background:#d9b36a"></div>
   </div>
 
   <!-- how it works -->
-  <div style="padding:clamp(56px,11vw,128px) 0 0">
+  <div data-screen-label="How" style="padding:clamp(56px,11vw,128px) 0 0">
     <div style="font-size:13px;font-weight:800;letter-spacing:0.15em;color:#2e5c43">HOW IT WORKS</div>
     <div style="margin-top:26px;display:flex;flex-direction:column">
       <div style="display:flex;gap:20px;padding:22px 0;border-top:1px solid rgba(35,35,33,0.12)">
